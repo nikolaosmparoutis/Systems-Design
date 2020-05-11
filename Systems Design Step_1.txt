@@ -1,6 +1,7 @@
 Many systems design questions are intentionally left very vague and are literally given in the form of `Design Foobar`. 
 It's our job to ask clarifying questions to better understand the system that we have to build.
-I give an example of some of questions i would ask if i asked to design the  StackOverflow website.
+I give an example of some of questions i would ask if i asked to design the  StackOverflow website and the possible answears because i
+know some statistics  and info from its use.
 
 1.  Are we designing all the system StackOverflow
 or  a part of it ?
