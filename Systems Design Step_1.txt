@@ -1,0 +1,43 @@
+Many systems design questions are intentionally left very vague and are literally given in the form of `Design Foobar`. It's our job to ask clarifying questions to better understand the system that we have to build.
+I give an example of some of questions i would ask if i asked to design the  StackOverflow website.
+
+1.  Are we designing all the system StackOverflow
+or  a part of it ?
+
+The core user flow includes:
+
+a- Home page, 
+b - Search Text Based (maybe Elasticsearch fits)
+c - List of questions,
+d - Response to questions,
+e - Mark answears as complete/positive or negative.
+
+2. StackOverflow seems like a system of 
+criticality but not like a hospital system or an airoplane system 
+so the availability is important; Are we okay
+with 3 to 4 nines availability ?
+We can use multiple  Loadbalancers. They should be configured in such a way that they can handle the sessions. Maybe by sending the same ip to the same backend every time. Or store them inside a database, or some shared memory.
+
+3. How many customer should we be building his for ?
+Global scale, to some countries or to one country?
+
+Stackoverlfow will have global scale with 100.000  thousands to 1 or 2 million 
+users. Everyday around 1/3 will uses it.
+Top users come from USA and Asia.
+
+4. Do changes happend often ?
+
+Yes - every couple of days with reflexion of changes within the hour globaly
+
+5. How much of the searching speed, questions ranking and the position of the search should we focus on?
+Correct spelling, then Speed then the clean position of search bar are the most important.
+ranking of the questions is but do not so much, by text relevance is OK.
+
+6. While latency seem important but  the data capacity seems quite huge.
+a. Are we OK storing all the questions on data centers or we clean them ?
+b. We can use distributed datacenters based on the most users  location?
+
+a. It is okay to keep all the questions unless some have negative feedback
+more than 3 points or is dublicated. So we expect to keep the most of the questions 
+on the datacenters.
+b. Yes distribute the most of them to USA then to Asia then to EU.
